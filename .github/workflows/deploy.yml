@@ -17,7 +17,7 @@ jobs:
         username: ${{ secrets.SERVER_USER }}
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
-          cd devops-project
+          cd Devops_CICD_demo
           git pull
           docker stop myapp || true
           docker rm myapp || true
