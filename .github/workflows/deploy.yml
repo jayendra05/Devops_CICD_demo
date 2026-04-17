@@ -18,7 +18,7 @@ jobs:
         password: ${{ secrets.SERVER_PASSWORD }}
         port: 22
         script: |
-          cd /home/Jayendra/projects/Devops_CICD_demo || exit
+          cd /home/Jayendra/Devops_CICD_demo || exit
 
           git pull origin main
 
