@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Deploy via SSH
+    - name: Deploy to server
       uses: appleboy/ssh-action@v0.1.6
       with:
         host: ${{ secrets.SERVER_IP }}
@@ -18,13 +18,13 @@ jobs:
         password: ${{ secrets.SERVER_PASSWORD }}
         port: 22
         script: |
-          cd ~/Devops_CICD_demo || exit
+          cd /home/Jayendra/projects/Devops_CICD_demo || exit
 
           git pull origin main
 
-          sudo docker stop myapp || true
-          sudo docker rm myapp || true
+          docker stop myapp || true
+          docker rm myapp || true
 
-          sudo docker build -t myapp .
+          docker build -t myapp .
 
-          sudo docker run -d -p 3000:3000 myapp
+          docker run -d -p 3000:3000 myapp
